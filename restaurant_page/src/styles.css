@@ -1,0 +1,93 @@
+body{
+	/* background-color: rebeccapurple; */
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+#logo{
+    width: 300px;
+    margin: 0px auto
+}
+
+nav{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.content-outer{
+    background-image: url("./images/home.png");
+    background-position: center;
+    height: 800px;
+    background-repeat: no-repeat;
+
+}
+
+.col{
+    width: 50%;
+}
+
+.main-text{
+    font-size: 74px;
+    font-weight: 400;
+    line-height: 90px;
+}
+
+.schedule{
+    margin-top: 20px;
+    font-size: 40px;
+    color: #BE9863;
+}
+
+.block-button-element{
+    margin-top: 20px;
+    font-size: 30px;
+    background-color: #694618;
+    padding: 15px;
+    color: #A1A09F;
+}
+
+.col4 img{
+    width: 80px;
+} 
+
+.col4{
+    width: 300px;
+}
+
+#about-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#about-container, .footer{
+    padding-top: 60px;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    line-height: 1.8em;
+}
+
+.footer{
+    text-align: center;
+}
+
+.menu-card{
+    display: flex;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+
+.name{
+    font-weight: 700;
+}
+
+.price{
+    margin-left: 60px;
+}
+
+.description{
+    margin-top: 5px;
+}
