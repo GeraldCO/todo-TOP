@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo</title>
+    </head>
+    <body>
+        <dialog id="todoDialog">
+            <form action="" methood="" id="addTodoForm">
+                <fieldset>
+                    <label for="todoName">Name</label>
+                    <input type="text" name="todoName" id="todoName">
+                </fieldset>
+                <fieldset>
+                    <label for="todoDescription">
+                        Description
+                    </label>
+                    <input type="text" name="todoDescription" id="todoDescription">
+                </fieldset>
+                <fieldset>
+                    <label for="todoDueDate">
+                        Due date
+                    </label>
+                    <input type="date" name="todoDueDate" id="todoDueDate">
+                </fieldset>
+                <fieldset>
+                    <input type="radio" id="low" name="todoPriority">
+                    <label for="todoPriority">Priority:</label>
+                    <input type="radio" id="medium" name="todoPriority">
+                    <label for="medium">Medium</label>
+                    <input type="radio" id="high" name="todoPriority">
+                    <label for="high">High</label>                    
+                </fieldset>
+
+                <fieldset>
+                    <button type="submit"> Submit </button>
+                    <button type="button" id="todoCancel">Cancel</button>
+                    
+                </fieldset>
+            </form>
+        </dialog>
+        <div class="container">
+            <div class="col-2" id="side-menu">
+                <h3> Projects </h3>
+                <div id="projects-list"></div>
+
+            </div>
+            <div class="col-4">
+                <div id="new-project">
+                    <form id="addProjectForm" method="post" action="">
+                        <fieldset>
+                            <input type="text" name="name" id="name">
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" name="dueDate" id="dueDate">
+                        </fieldset>
+
+                        <fieldset>
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority">
+                                <option value="">--choose priority --</option>
+                                <option value="low">low</option>
+                                <option value="medium">medium</option>
+                                <option value="high">high</option>
+                            </select>
+                        </fieldset>
+                        
+                        <button type="submit">Add Project</button>
+                    </form>
+                </div>
+                <div id="todo-display-area">
+                    <button id="openTodoDialog">Add todo item</button>
+                    <h3>Tasks for: </h3>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>
