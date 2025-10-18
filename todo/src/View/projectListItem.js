@@ -1,6 +1,6 @@
-const todoDisplayArea = document.querySelector("#todo-display-area");
+import { displayTodos } from "./todoCard";
 
-export const createProjectListElement = (project)=> {
+export const createProjectListElement = (project, updateSelectedProject)=> {
     const projectListElementContainer = document.createElement('div');
     const projectName = document.createElement('span');
     const closeBtn = document.createElement('button');
@@ -10,7 +10,9 @@ export const createProjectListElement = (project)=> {
     projectListElementContainer.appendChild(closeBtn);
 
     projectListElementContainer.addEventListener('click', (e)=>{
-        todoDisplayArea.firstElementChild.textContent = "Task for: " + project.name;
-    })
+        document.querySelector('#selectedProjecTitle').textContent = "Task for: " + project.name;
+        updateSelectedProject(project);
+        displayTodos(project);
+    });
     return projectListElementContainer;
 }

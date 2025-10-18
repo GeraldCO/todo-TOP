@@ -1,6 +1,7 @@
 import Project from "./project";
 import Todo from "./todo";
 import { createProjectListElement } from "../View/projectListItem";
+import { displayTodos } from "../View/todoCard";
 
 export class Projects{
 
@@ -8,30 +9,35 @@ export class Projects{
             new Project("Home Renovation", "2025-10-15", "High"),
             new Project("Work Presentation", "2025-09-30", "Medium"),
             new Project("Vacation Planning",  "2025-12-01", "Low")
-    ]
+    ];
 
     newProject = (project) => {
-        this.projects.push(project)
+        this.projects.push(project);
     }
 
-    addTodo = (projectID, todo) => {
-        const p = projects.find((e)=> e.projectID == projectID);
-        p.todos.push(todo);
+    addTodo = (project, todo) => {
+        project.todos.push(todo);
+        displayTodos(project);        
+    }
+
+    removeTodo = (project, todo)=>{
+        
     }
 
     newTodo = (projectID, description, status, priority) => {
         const newTodo = Todo(projectID, description, status, priority);
     }
 
-    deleteProject = (projectID)=>{
-        const p = projects.find((e) => e.projectID == projectID);
+    deleteProject = (project)=>{
         projects.splice(p);
     }
 
-    display = (projectsContainer) => {
+
+
+    display = (projectsContainer, updateSelectedProject) => {
         projectsContainer.innerHTML = "";
         this.projects.map((e)=>{
-            projectsContainer.appendChild(createProjectListElement(e))
+            projectsContainer.appendChild(createProjectListElement(e, updateSelectedProject));
         });
     }
 }

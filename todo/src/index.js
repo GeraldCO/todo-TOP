@@ -7,6 +7,15 @@ import { dialogControllers } from "./data/todoController";
 
 const allProjects = new Projects;
 createNewproject(allProjects);
+var selectedProject;
+
+const updateSelectedProject = (project)=> {
+    selectedProject = project;
+}
+
+const getSelectedProject = ()=>{
+    return selectedProject;
+}
 
 // Add mock todos to each project after creation
 allProjects.projects.forEach((project, idx) => {
@@ -14,6 +23,5 @@ allProjects.projects.forEach((project, idx) => {
     project.todos = mockTodos.slice(idx * 2, idx * 2 + 2);
 });
 
-dialogControllers();
-
-allProjects.display(projectsListDiv);
+dialogControllers(allProjects.addTodo, getSelectedProject);
+allProjects.display(projectsListDiv, updateSelectedProject);

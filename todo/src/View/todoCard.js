@@ -1,4 +1,6 @@
-export const todoCard = (todo)=>{
+const todosDivContainer = document.querySelector('#todosContainer');
+
+const todoCard = (todo)=>{
     const todoContainer = document.createElement('div');
     
 
@@ -22,4 +24,15 @@ export const todoCard = (todo)=>{
     closeBtn.textContent = 'x';
 
     todoControllers.appendChild(closeBtn);
+    todoContainer.appendChild(todoData);
+    todoContainer.appendChild(todoControllers);
+
+    return todoContainer;
+}
+
+export const displayTodos = (project) => {
+    todosDivContainer.innerHTML = ""
+    project.todos.map((todo)=>{
+        todosDivContainer.appendChild(todoCard(todo));
+    })
 }
