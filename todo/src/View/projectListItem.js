@@ -1,6 +1,6 @@
 import { displayTodos } from "./todoCard";
 
-export const createProjectListElement = (project, updateSelectedProject)=> {
+export const createProjectListElement = (project, updateSelectedProject, deleteProject)=> {
     const projectListElementContainer = document.createElement('div');
     const projectName = document.createElement('span');
     const closeBtn = document.createElement('button');
@@ -14,5 +14,10 @@ export const createProjectListElement = (project, updateSelectedProject)=> {
         updateSelectedProject(project);
         displayTodos(project);
     });
+
+    closeBtn.addEventListener('click', ()=>{
+        deleteProject();
+    });
+
     return projectListElementContainer;
 }

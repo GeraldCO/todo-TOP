@@ -13,7 +13,7 @@ const updateSelectedProject = (project)=> {
     selectedProject = project;
 }
 
-const getSelectedProject = ()=>{
+export const getSelectedProject = ()=>{    
     return selectedProject;
 }
 

@@ -2,6 +2,7 @@ import Project from "./project";
 import Todo from "./todo";
 import { createProjectListElement } from "../View/projectListItem";
 import { displayTodos } from "../View/todoCard";
+import { getSelectedProject } from "../index";
 
 export class Projects{
 
@@ -28,16 +29,28 @@ export class Projects{
         const newTodo = Todo(projectID, description, status, priority);
     }
 
-    deleteProject = (project)=>{
-        projects.splice(p);
+    deleteProject = ()=>{
+        console.log(getSelectedProject());
+        
+        const index = this.projects.findIndex((currentValue) => {
+            return currentValue == getSelectedProject();
+        });
+        console.log(index);
+        
+        
+        
+
+        
+        // this.projects.splice(project);
+        // console.log(this.projects);
     }
 
 
 
-    display = (projectsContainer, updateSelectedProject) => {
+    display = (projectsContainer, updateSelectedProject, getSelectedProject) => {
         projectsContainer.innerHTML = "";
         this.projects.map((e)=>{
-            projectsContainer.appendChild(createProjectListElement(e, updateSelectedProject));
+            projectsContainer.appendChild(createProjectListElement(e, updateSelectedProject, this.deleteProject ));
         });
     }
 }
