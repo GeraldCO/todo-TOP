@@ -9,7 +9,7 @@ const allProjects = new Projects;
 createNewproject(allProjects);
 var selectedProject;
 
-const updateSelectedProject = (project)=> {
+export const updateSelectedProject = (project)=> {
     selectedProject = project;
 }
 

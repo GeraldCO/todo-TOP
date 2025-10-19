@@ -3,6 +3,8 @@ import Todo from "./todo";
 import { createProjectListElement } from "../View/projectListItem";
 import { displayTodos } from "../View/todoCard";
 import { getSelectedProject } from "../index";
+import { projectsListDiv } from "../View/mainView";
+
 
 export class Projects{
 
@@ -30,27 +32,19 @@ export class Projects{
     }
 
     deleteProject = ()=>{
-        console.log(getSelectedProject());
-        
         const index = this.projects.findIndex((currentValue) => {
             return currentValue == getSelectedProject();
         });
-        console.log(index);
-        
-        
-        
-
-        
-        // this.projects.splice(project);
-        // console.log(this.projects);
+        this.projects.splice(index, 1);
+        this.display(projectsListDiv);
     }
 
 
 
-    display = (projectsContainer, updateSelectedProject, getSelectedProject) => {
+    display = (projectsContainer) => {
         projectsContainer.innerHTML = "";
         this.projects.map((e)=>{
-            projectsContainer.appendChild(createProjectListElement(e, updateSelectedProject, this.deleteProject ));
+            projectsContainer.appendChild(createProjectListElement(e, this.deleteProject ));
         });
     }
 }

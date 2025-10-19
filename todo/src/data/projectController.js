@@ -1,5 +1,6 @@
 import { addNewProject } from "../View/mainView";
 import { projectsListDiv } from "../View/mainView";
+import { updateSelectedProject } from "../index";
 
 const newProjectForm = document.querySelector('#addProjectForm');
 

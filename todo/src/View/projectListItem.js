@@ -1,6 +1,7 @@
 import { displayTodos } from "./todoCard";
+import { updateSelectedProject } from "../index";
 
-export const createProjectListElement = (project, updateSelectedProject, deleteProject)=> {
+export const createProjectListElement = (project, deleteProject)=> {
     const projectListElementContainer = document.createElement('div');
     const projectName = document.createElement('span');
     const closeBtn = document.createElement('button');
