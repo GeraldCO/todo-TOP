@@ -1,11 +1,11 @@
 import "./styles.css"
-import { Projects } from "./modules/projects";
 import { createNewproject } from "./data/projectController";
-import { projectsListDiv } from "./View/mainView";
 import { mockTodos } from "./modules/mockdata";
 import { dialogControllers } from "./data/todoController";
+import { allProjects } from "./modules/projects";
+import { displayProjects } from "./data/projectController";
 
-const allProjects = new Projects;
+
 createNewproject(allProjects);
 var selectedProject;
 
@@ -24,4 +24,4 @@ allProjects.projects.forEach((project, idx) => {
 });
 
 dialogControllers(allProjects.addTodo, getSelectedProject);
-allProjects.display(projectsListDiv, updateSelectedProject);
+displayProjects(allProjects);

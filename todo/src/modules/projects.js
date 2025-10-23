@@ -1,9 +1,9 @@
 import Project from "./project";
 import Todo from "./todo";
-import { createProjectListElement } from "../View/projectListItem";
 import { displayTodos } from "../View/todoCard";
 import { getSelectedProject } from "../index";
 import { projectsListDiv } from "../View/mainView";
+import { Storage } from "../data/localStorage/localStorageHandler";
 
 
 export class Projects{
@@ -16,11 +16,16 @@ export class Projects{
 
     newProject = (project) => {
         this.projects.push(project);
+        Storage.updateProjects(this.projects);
     }
 
     addTodo = (project, todo) => {
         project.todos.push(todo);
         displayTodos(project);        
+    }
+
+    getAllProjects(){
+        return this.projects;
     }
 
     removeTodo = (project, todo)=>{
@@ -39,12 +44,7 @@ export class Projects{
         this.display(projectsListDiv);
     }
 
-
-
-    display = (projectsContainer) => {
-        projectsContainer.innerHTML = "";
-        this.projects.map((e)=>{
-            projectsContainer.appendChild(createProjectListElement(e, this.deleteProject ));
-        });
-    }
+    
 }
+
+export const allProjects = new Projects();
